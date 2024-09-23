@@ -161,7 +161,7 @@ export const SearchIndex: React.FC = () => {
       ),
       id: SearchIndexTabId.INDEX_MAPPINGS,
       name: i18n.translate('xpack.enterpriseSearch.content.searchIndex.indexMappingsTabLabel', {
-        defaultMessage: 'Index mappings',
+        defaultMessage: 'Mappings',
       }),
     },
   ];
