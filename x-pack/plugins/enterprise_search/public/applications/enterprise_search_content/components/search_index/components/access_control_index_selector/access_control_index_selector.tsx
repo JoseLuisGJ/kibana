@@ -60,6 +60,7 @@ export const AccessControlIndexSelector: React.FC<IndexSelectorProps> = ({
 }) => {
   return (
     <EuiSuperSelect
+      fullWidth
       valueOfSelected={valueOfSelected}
       onChange={onChange}
       options={indexSelectorOptions.map((option) => {

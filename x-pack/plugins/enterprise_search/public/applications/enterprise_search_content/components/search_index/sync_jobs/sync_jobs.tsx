@@ -9,7 +9,7 @@ import React, { useEffect } from 'react';
 
 import { useActions, useValues } from 'kea';
 
-import { EuiButtonGroup } from '@elastic/eui';
+import { EuiButtonGroup, EuiSpacer } from '@elastic/eui';
 
 import { i18n } from '@kbn/i18n';
 
@@ -66,41 +66,44 @@ export const SyncJobs: React.FC<SyncJobsProps> = ({ connector }) => {
   return (
     <>
       {shouldShowAccessSyncs && (
-        <EuiButtonGroup
-          legend={i18n.translate(
-            'xpack.enterpriseSearch.content.syncJobs.lastSync.tableSelector.legend',
-            { defaultMessage: 'Select sync job type to display.' }
-          )}
-          name={i18n.translate(
-            'xpack.enterpriseSearch.content.syncJobs.lastSync.tableSelector.name',
-            { defaultMessage: 'Sync job type' }
-          )}
-          idSelected={selectedSyncJobCategory}
-          onChange={(optionId) => {
-            if (optionId === 'content' || optionId === 'access_control') {
-              setSelectedSyncJobCategory(optionId);
-            }
-          }}
-          options={[
-            {
-              id: 'content',
-              label: i18n.translate(
-                'xpack.enterpriseSearch.content.syncJobs.lastSync.tableSelector.content.label',
-                { defaultMessage: 'Content syncs' }
-              ),
-              ...(errorOnContentSync ? { iconSide: 'right', iconType: 'warning' } : {}),
-            },
+        <>
+          <EuiButtonGroup
+            legend={i18n.translate(
+              'xpack.enterpriseSearch.content.syncJobs.lastSync.tableSelector.legend',
+              { defaultMessage: 'Select sync job type to display.' }
+            )}
+            name={i18n.translate(
+              'xpack.enterpriseSearch.content.syncJobs.lastSync.tableSelector.name',
+              { defaultMessage: 'Sync job type' }
+            )}
+            idSelected={selectedSyncJobCategory}
+            onChange={(optionId) => {
+              if (optionId === 'content' || optionId === 'access_control') {
+                setSelectedSyncJobCategory(optionId);
+              }
+            }}
+            options={[
+              {
+                id: 'content',
+                label: i18n.translate(
+                  'xpack.enterpriseSearch.content.syncJobs.lastSync.tableSelector.content.label',
+                  { defaultMessage: 'Content syncs' }
+                ),
+                ...(errorOnContentSync ? { iconSide: 'right', iconType: 'warning' } : {}),
+              },
 
-            {
-              id: 'access_control',
-              label: i18n.translate(
-                'xpack.enterpriseSearch.content.syncJobs.lastSync.tableSelector.accessControl.label',
-                { defaultMessage: 'Access control syncs' }
-              ),
-              ...(errorOnAccessSync ? { iconSide: 'right', iconType: 'warning' } : {}),
-            },
-          ]}
-        />
+              {
+                id: 'access_control',
+                label: i18n.translate(
+                  'xpack.enterpriseSearch.content.syncJobs.lastSync.tableSelector.accessControl.label',
+                  { defaultMessage: 'Access control syncs' }
+                ),
+                ...(errorOnAccessSync ? { iconSide: 'right', iconType: 'warning' } : {}),
+              },
+            ]}
+          />
+          <EuiSpacer size="m" />
+        </>
       )}
       {selectedSyncJobCategory === 'content' ? (
         <SyncJobsTable

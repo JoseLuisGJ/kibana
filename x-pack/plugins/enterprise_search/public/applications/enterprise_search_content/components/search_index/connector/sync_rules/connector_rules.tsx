@@ -56,7 +56,6 @@ export const ConnectorSyncRules: React.FC = () => {
           setIsEditing={setIsEditing}
         />
       )}
-      <EuiSpacer />
       <EuiFlexGroup direction="column">
         {hasDraft && (
           <EuiFlexItem>

@@ -69,7 +69,6 @@ export const SearchIndexIndexMappings: React.FC = () => {
 
   return (
     <>
-      <EuiSpacer />
       <EuiFlexGroup>
         <EuiFlexItem grow={2}>
           <EuiFlexGroup direction="column" gutterSize="s">

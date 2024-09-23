@@ -7,14 +7,7 @@
  * License v3.0 only", or the "Server Side Public License, v 1".
  */
 
-import {
-  EuiFieldSearch,
-  EuiFlexGroup,
-  EuiFlexItem,
-  EuiPanel,
-  EuiSpacer,
-  EuiTitle,
-} from '@elastic/eui';
+import { EuiFieldSearch, EuiFlexGroup, EuiFlexItem, EuiPanel, EuiSpacer, EuiTitle } from '@elastic/eui';
 import { i18n } from '@kbn/i18n';
 import React, { ChangeEvent } from 'react';
 
@@ -32,10 +25,9 @@ export const DocumentsOverview: React.FC<DocumentsProps> = ({
 }) => {
   return (
     <EuiPanel hasBorder={false} hasShadow={false} paddingSize="none">
-      <EuiSpacer />
       <EuiFlexGroup direction="column">
         <EuiFlexItem>
-          <EuiFlexGroup direction="row" alignItems="center">
+          <EuiFlexGroup direction="row" alignItems="center" gutterSize="s">
             <EuiFlexItem className="enterpriseSearchDocumentsHeader" grow={false}>
               <EuiTitle size="s">
                 <h2>
@@ -45,7 +37,11 @@ export const DocumentsOverview: React.FC<DocumentsProps> = ({
                 </h2>
               </EuiTitle>
             </EuiFlexItem>
-            {accessControlSwitch && <EuiFlexItem grow={false}>{accessControlSwitch}</EuiFlexItem>}
+            {accessControlSwitch && (
+              <EuiFlexItem style={{ minWidth: 260 }} grow={false}>
+                {accessControlSwitch}
+              </EuiFlexItem>
+            )}
             <EuiFlexItem>
               <EuiFieldSearch
                 data-telemetry-id={`${dataTelemetryIdPrefix}-documents-searchDocuments`}
