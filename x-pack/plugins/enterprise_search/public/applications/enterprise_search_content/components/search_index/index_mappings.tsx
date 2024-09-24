@@ -75,6 +75,7 @@ export const SearchIndexIndexMappings: React.FC = () => {
             {shouldShowAccessControlSwitch && (
               <EuiFlexItem grow={false} className="enterpriseSearchMappingsSelector">
                 <AccessControlIndexSelector
+                  fullWidth
                   onChange={setSelectedIndexType}
                   valueOfSelected={selectedIndexType}
                 />
